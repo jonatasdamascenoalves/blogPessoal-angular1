@@ -12,6 +12,8 @@ export class FeedComponent implements OnInit {
 
   listaPostagens: Postagem []
 
+  postagem:Postagem = new Postagem
+
 
   constructor(private postagemService: PostagemService) { }
 
@@ -22,6 +24,13 @@ export class FeedComponent implements OnInit {
 findallPostagens(){
   this.postagemService.getAllpostagens().subscribe((resp: Postagem[])=>{
     this.listaPostagens = resp
+  })
+}
+
+publicar(){
+  this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+    this.postagem = resp
+    location.assign('/feed')
   })
 }
 
