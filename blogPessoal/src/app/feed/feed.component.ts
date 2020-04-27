@@ -21,6 +21,10 @@ reverse = true
 
   ngOnInit() {
     this.findallPostagens()
+
+    window.scroll(0, 0)
+
+
   }
 
 findallPostagens(){
